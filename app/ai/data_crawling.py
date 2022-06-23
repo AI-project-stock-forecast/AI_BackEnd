@@ -127,21 +127,21 @@ def predict(data):
     end_index = len(data) + 7
 
     forecast = model_fit.predict(start=start_index, end=end_index)
-    forecast = forecast.to_list()
+    forecast = forecast.tolist()
 
     print(forecast)
 
     return forecast
 
 
-if __name__ == '__main__':
-    # data = get_sise_data('035420')
-    with open('res.csv', 'r', encoding='cp949') as f:
-        data = pd.read_csv(f)
-
-    date = data['날짜']
-    siga = data['시가']
-    siga = siga.apply(lambda x: int(x.replace(',', '')))
-
-    siga_fore = siga[:-7]
-    forecast = predict(siga_fore)
+# if __name__ == '__main__':
+#     # data = get_sise_data('035420')
+#     with open('res.csv', 'r', encoding='cp949') as f:
+#         data = pd.read_csv(f)
+#
+#     date = data['날짜']
+#     siga = data['시가']
+#     siga = siga.apply(lambda x: int(x.replace(',', '')))
+#
+#     siga_fore = siga[:-7]
+#     forecast = predict(siga_fore)
